@@ -2,7 +2,7 @@ def fitur1():
       import random, string
       
       #Tampilan fitur 1
-      print("\n*** PENDAFTARAN ANGGOTA BARU \n***")
+      print("\n*** PENDAFTARAN ANGGOTA BARU ***\n")
       nama = input("Masukkan Nama: ")
       tipeAnggota = input("Apakah merupakan karyawan NF Group? (Y/T): ")
       if tipeAnggota == "Y" or tipeAnggota == "y":
@@ -252,25 +252,27 @@ print(
       [6] Keluar""")
 while True:
       pilih = input("\nMasukkan menu pilihan Anda: ")
-      # Menu 1
+      # Fitur 1
       if pilih == "1":
             fitur1()
 
-      # Menu 2
+      # Fitur 2
       elif pilih == "2":
             fitur2()
 
-      # Menu 3
+      # Fitur 3
       elif pilih == "3":
             fitur3()
-      # Menu 4
+      # Fitur 4
       elif pilih == "4":
             fitur4()
-            
+      # Fitur 5
       elif pilih == "5":
             fitur5()
+      # Mengakhiri program/perulangan while
       elif pilih == "6":
             print("Terima kasih atas kunjungan Anda...")
             break
+      #Ketika masukkan tidak sesuai
       else:
             print("Pilihan Anda salah. Ulangi.")
