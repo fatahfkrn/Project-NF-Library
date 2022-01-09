@@ -2,7 +2,7 @@ def fitur1():
       import random, string
       
       #Tampilan fitur 1
-      print("\n*** PENDAFTARAN ANGGOTA BARU ***")
+      print("\n*** PENDAFTARAN ANGGOTA BARU \n***")
       nama = input("Masukkan Nama: ")
       tipeAnggota = input("Apakah merupakan karyawan NF Group? (Y/T): ")
       if tipeAnggota == "Y" or tipeAnggota == "y":
@@ -36,7 +36,7 @@ def fitur2():
       myFile.close()
 
 def fitur3():
-      print("\n*** PEMINJAMAN BUKU ***")
+      print("\n*** PEMINJAMAN BUKU***\n")
 
       kd_buku = input("Kode buku: ")
 
@@ -125,7 +125,6 @@ def fitur3():
                         #Menampilkan hasil peminjaman
                         print("Peminjaman buku "+kd_buku + " oleh "+kd_anggota+" berhasil.")
 
-
                   else:       #jika salah, tampilkan
                         print("Stok buku kosong. Peminjaman gagal.")
             else:             #jika salah, tampilkan
@@ -134,7 +133,7 @@ def fitur3():
             print("Kode buku tidak ditemukan. Peminjaman gagal.\n")
 
 def fitur4():
-      print("\n*** PENGEMBALIAN BUKU ***")
+      print("\n*** PENGEMBALIAN BUKU ***\n")
 
       kd_buku = input("Kode buku: ")
 
@@ -195,28 +194,6 @@ def fitur4():
       else:
             print("Kode buku salah")
 
-
-      #             #hapus data anggota didalam file peminjaman
-      #             for i in range(len(dataPinjam)):
-      #                   if dataPinjam[i][:6] == kd_buku: # Mengecek buku ada atau tidak di dalam file 
-      #                         dataPinjam[i] = dataPinjam[i].split(", ") #Ini untuk mengubah jadi list 
-      #                         dataPinjam[i].remove(kd_anggota)    #ini untuk menyeleksi data pinjaman
-      #                         if len(dataPinjam[i]) == 1 :  #jika kode anggota yang diinput ada didalam file peminjaman, maka...
-      #                               del dataPinjam[i]       #hapus kode anggota di file peminjaman
-      #                         else:       #jika tidak, maka
-      #                               dataPinjam[i] = ",".join(dataPinjam[i])#Mengembalikan menjadi str
-
-      #             # setelah selesai, perbarui data yang ada di file peminjaman
-                  
-
-      #             # menampilkan pengembalian berhasil
-      #             print("Pengembalian buku "+kd_buku +" oleh "+kd_anggota+" berhasil.")
-      #       else:       #jika kode anggota tidak terdaftar didalam file peminjaman, maka tampilkan
-      #             print("Kode anggota tidak terdaftar sebagai peminjam buku tersebut. Pengembalian buku gagal.\n")
-      # else:       #jika kode buku tidak terdaftar didalam file peminjaman, maka tampilkan
-      #       print("Kode buku salah. Pengembalian buku gagal.")
-
-
 def fitur5():
       # ubah data text -> list (temp) -> dict (dataBuku)
       # Data buku
@@ -251,7 +228,7 @@ def fitur5():
 
       
       #kita nampilin value dataBuku dimana keysnya adalah kode buku yang ada didalam dataPinjam
-      print("\n*** DAFTAR PEMINJAMAN BUKU ***\n")
+      print("*** \nDAFTAR PEMINJAMAN BUKU ***\n")
 
       for i in dataPinjam.keys():
             nomer = 0
