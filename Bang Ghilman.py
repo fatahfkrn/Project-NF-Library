@@ -1,5 +1,21 @@
 import random, string
+from os import read, system
+from time import sleep
 
+def menu():
+      print(
+    """\n***** SELAMAT DATANG DI NF LIBRARY *****
+      MENU:
+      [1] Tambah Anggota Baru
+      [2] Tambah Buku Baru
+      [3] Pinjam Buku
+      [4] Kembalikan Buku
+      [5] Lihat Data Peminjaman
+      [6] Keluar""")
+def clear():
+      print("\nEnter back to MENU")
+      a = input()
+      _ = system('cls')
 def readBuku():         # Function untuk mengakses file buku
       dataBuku = []
       f = open('File Buku.txt')
@@ -46,6 +62,17 @@ def kurangStok(kd_buku):            # Function untuk mengurangi stok buku
             if dataBuku[i][:6] == kd_buku: # Mengecek buku ada atau tidak di dalam file 
                   dataBuku[i] = dataBuku[i].split(", ") #Ini untuk mengubah jadi list (ngambil stok)
                   dataBuku[i][-1] = str(int(dataBuku[i][-1]) - 1)# Ngubah stok 
+                  dataBuku[i] = ", ".join(dataBuku[i])#Ngembaliin menjadi str
+      myfile = open('File Buku.txt', 'w+')
+      for i in dataBuku:
+            myfile.write(i+"\n")
+      myfile.close()
+def nambahStok(kd_buku):
+      dataBuku = readBuku()
+      for i in range(len(dataBuku)): #Ini adalah perulangan 
+            if dataBuku[i][:6] == kd_buku: # Mengecek buku ada atau tidak di dalam file 
+                  dataBuku[i] = dataBuku[i].split(", ") #Ini untuk mengubah jadi list (ngambil stok)
+                  dataBuku[i][-1] = str(int(dataBuku[i][-1]) + 1)# Ngubah stok 
                   dataBuku[i] = ", ".join(dataBuku[i])#Ngembaliin menjadi str
       myfile = open('File Buku.txt', 'w+')
       for i in dataBuku:
@@ -135,15 +162,7 @@ def viewPinjam():
             print()
 
 # Kode ini untuk menampilkan menu & fitur
-print(
-    """***** SELAMAT DATANG DI NF LIBRARY *****
-      MENU:
-      [1] Tambah Anggota Baru
-      [2] Tambah Buku Baru
-      [3] Pinjam Buku
-      [4] Kembalikan Buku
-      [5] Lihat Data Peminjaman
-      [6]Keluar""")
+menu()
 
 while True:
       pilih = input("\nMasukkan menu pilihan Anda: ")
@@ -196,6 +215,7 @@ while True:
             kd_buku = input("Kode buku: ")
             if cek_buku(kd_buku):
                   kd_anggota = input("Kode anggota: ")
+                  nambahStok(kd_buku)
                   if anggota_pinjam(kd_buku,kd_anggota):
                         denda = int(input("Keterlambatan pengembalian (dalam hari, 0 jika tidak terlambat): "))
                         if cek_statusAngggota(kd_anggota):
@@ -221,3 +241,5 @@ while True:
             break
       else:
             print("Pilihan Anda salah. Ulangi.")
+      clear()
+      menu()
